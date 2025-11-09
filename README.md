@@ -1,4 +1,4 @@
-# Mini-Projeto — POO em Java (Aulas 01 a 04)
+# Mini-Projeto - POO em Java (Aulas 01 a 04)
 
 Aluno: Ermesly Blanc  
 Turma: SPL0400102NNA  

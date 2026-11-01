@@ -1,0 +1,29 @@
+name: Java CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Compile
+        run: |
+          mkdir -p out
+          javac -encoding UTF-8 -d out src/*.java tests/*.java
+      - name: Run tests
+        run: java -cp out EscolaTest
+      - name: Run sample app
+        run: java -cp out EscolaApp

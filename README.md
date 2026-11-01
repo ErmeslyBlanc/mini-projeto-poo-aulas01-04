@@ -1,116 +1,74 @@
-# Mini-Projeto - POO em Java (Aulas 01 a 04)
+<div align="center">
 
-Aluno: Ermesly Blanc  
-Turma: SPL0400102NNA  
+# ☕ Java - Object-Oriented Programming
 
----
+**A practical school management example built to learn the fundamentals of Java OOP.**
 
-## Objetivo
+![Java](https://img.shields.io/badge/Java-1B2440?style=for-the-badge&logo=openjdk&logoColor=F89820)
+![Tests](https://img.shields.io/github/actions/workflow/status/ErmeslyBlanc/mini-projeto-poo-aulas01-04/java-ci.yml?branch=main&style=for-the-badge&label=Java%20Checks)
+[![GitHub](https://img.shields.io/badge/Developer-Ermesly%20Blanc-6E4CAB?style=for-the-badge&logo=github)](https://github.com/ErmeslyBlanc)
 
-Aplicar os conceitos fundamentais de Programação Orientada a Objetos (POO) em Java, incluindo:
+</div>
 
-- Criação e uso de objetos  
-- Encapsulamento (get/set)  
-- Construtores e sobrecarga  
-- Herança e polimorfismo  
+## About
 
----
+This academic project demonstrates Java object-oriented programming concepts in an example involving students and teachers. It has no external dependencies.
 
-## Estrutura do Projeto
+**Concepts practiced:** encapsulation, constructors, validation, inheritance, method overriding and polymorphism.
 
-mini-projeto-poo-aulas01-04/
-├── src/
-│ ├── Pessoa.java
-│ ├── Aluno.java
-│ ├── Professor.java
-│ └── EscolaApp.java
-└── README.md
+## Project structure
 
----
+```text
+src/
+  Pessoa.java        Base class and common validation
+  Aluno.java         Student model with grade and registration
+  Professor.java     Teacher model with subject and salary
+  EscolaApp.java     Console demonstration
+tests/
+  EscolaTest.java    Automated checks
+.github/workflows/
+  java-ci.yml        Compile and test on GitHub Actions
+```
 
-## Descrição das Classes
+## Class design
 
-### Pessoa
-Classe base com os atributos:
-- `nome`, `idade`, `email`  
-Inclui métodos getters/setters com validação e o método `exibirInformacoes()`.
+```text
+Pessoa
+  |-- Aluno
+  |-- Professor
+```
 
-### Aluno
-Subclasse de `Pessoa` com atributos:
-- `matricula`, `notaMedia`  
-Sobrescreve o método `exibirInformacoes()` para mostrar dados específicos.
+- **Pessoa** stores name, age and email.
+- **Aluno** adds registration ID and average grade from 0 to 10.
+- **Professor** adds subject and non-negative salary.
+- **EscolaApp** creates sample instances and prints their information.
 
-### Professor
-Subclasse de `Pessoa` com atributos:
-- `disciplina`, `salario`  
-Também sobrescreve `exibirInformacoes()` com detalhes do professor.
+![Class diagram](image/diagrama-classes.png)
 
-### EscolaApp
-Classe principal responsável por instanciar objetos de `Aluno` e `Professor`, exibindo as informações no console (demonstra o polimorfismo).
+## Run locally
 
----
-
-## Execução
-
-Você pode executar o projeto de duas formas: pelo **Prompt de Comando (CMD)** ou pelo **terminal do VS Code**.
-
-### 1. Executando pelo CMD
-
-Dentro da pasta `src`, digite:
+Requires a Java Development Kit (JDK 17 or newer).
 
 ```bash
-javac *.java
-java EscolaApp
+javac -encoding UTF-8 -d out src/*.java
+java -cp out EscolaApp
+```
 
+On Windows CMD, create the `out` directory first if needed. Java's `javac -d` writes compiled classes to the specified folder.
 
-2. Executando pelo VS Code (caso o CMD não funcione)
+## Run automated tests
 
-Se o terminal do CMD não reconhecer os comandos javac ou java, você pode rodar o projeto diretamente dentro do VS Code:
+```bash
+javac -encoding UTF-8 -d out src/*.java tests/*.java
+java -cp out EscolaTest
+```
 
-Abra o arquivo EscolaApp.java.
+The test runner uses standard Java only, verifying valid class construction, inheritance, getters and validation errors.
 
-No topo da janela do VS Code, clique no botão Run (ou Executar).
+## Continuous integration
 
-Se o botão não aparecer, pressione Ctrl + F5.
+GitHub Actions compiles the application and executes the tests on push and pull request. The badge at the top reflects workflow status rather than a manually assigned result.
 
-O programa será compilado e executado automaticamente no terminal integrado do VS Code.
+## Maintainer
 
-
-
-Saída esperada
-
-=== Aluno ===
-Nome: João Silva
-Idade: 16
-Email: joao@email.com
-Matrícula: A123
-Nota média: 8.7
-
-=== Professor ===
-Nome: Maria Souza
-Idade: 35
-Email: maria@escola.com
-Disciplina: Matemática
-Salário: R$ 4500.0
-
-
-Diagrama de Classes
-Pessoa
- ├── nome : String
- ├── idade : int
- ├── email : String
- ├── +exibirInformacoes()
- │
- ├── Aluno
- │   ├── matricula : String
- │   ├── notaMedia : double
- │   └── +exibirInformacoes()
- │
- └── Professor
-     ├── disciplina : String
-     ├── salario : double
-     └── +exibirInformacoes()
-
-![Diagrama de Classes](image/diagrama-classes.png)
-
-
+**Ermesly Blanc** - [GitHub](https://github.com/ErmeslyBlanc) - [LinkedIn](https://www.linkedin.com/in/ermesly-blanc-640a1a170/)
